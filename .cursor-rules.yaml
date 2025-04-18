@@ -1,0 +1,3 @@
+# Use uv for managing the Python environment
+# See https://cursor.sh/docs/reference/cursor-rules
+use-uv: true 

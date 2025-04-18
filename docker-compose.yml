@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  chromadb:
+    image: chromadb/chroma:0.6.3          # pin to a stable release
+    container_name: chromadb
+    environment:
+      - IS_PERSISTENT=TRUE                # enable on‐disk persistence
+      - PERSIST_DIRECTORY=/chroma/chroma  # where Chroma stores its data
+      - ANONYMIZED_TELEMETRY=FALSE        # opt out of telemetry if you like
+    volumes:
+      - ./chromadb_data:/chroma/chroma    # map host ./chromadb_data to container storage
+    ports:
+      - "8000:8000"                       # expose Chroma’s HTTP API on localhost:8000
+
